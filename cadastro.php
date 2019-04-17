@@ -8,16 +8,27 @@
         $email = $_REQUEST["email"];
         $senha = $_REQUEST["senha"];
         $confirmarSenha = $_REQUEST["confirmarsenha"];
-        
+        // testes compara os dados cadastrados no banco de dados com os dados digitados
+        // $cadastro = md5($senha);
+        // $login = md5($senha);
+        // echo $cadastro . "<br>";
+        // echo $login;
+        // exit;
+        // Utilizando o hash
+        // $hash = password_hash($senha, PASSWORD_DEFAULT);
+        // echo $hash;
+        // exit;
         // echo $nome . " " . $email . " " . $senha . " ". $confirmarSenha;
         // exit;
         // verifica se a senha é igual ao confirmar senha
         if($senha == $confirmarSenha){
+            //criptografando a senha
+            $senhaCrip = password_hash($senha, PASSWORD_DEFAULT);
             // criando um novo usuário
             $novousuario = [
                 "nome"=> $nome,
                 "email"=> $email,
-                "senha"=> $senha,
+                "senha"=> $senhaCrip,
             ];
             // cadastro meu usuario no json
             $cadastrou = cadastrarusuario($novousuario);
