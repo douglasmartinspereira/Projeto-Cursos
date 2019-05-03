@@ -1,22 +1,23 @@
 <?php
-    session_start();
-    $nomeLogado = $_SESSION["nome"];
-    $emailLogado = $_SESSION["email"];
-    $nivelAcesso = $_SESSION["nivelAcesso"];
+ 
+ session_start();  // todos os arquivos que for usar a sessão precisa abrir o session_start()
+ $nomeLogado = $_SESSION["nome"];
+ $emailLogado = $_SESSION["email"];
+ $nivelAcesso = $_SESSION["nivelAcesso"];
 
-    //verificando se a sessaão logado está definida
-    if(!isset($_SESSION["logado"])){
-        //redirecionando o usuario para o login
-        header("location: login.php");
-    }
+ // verificando se a sessão logado estáa definida
+ if(!isset($_SESSION["logado"])) {
+     // caso seja false redireciona o usuário para o login
+     header("Location: login.php");
+ }
+
 ?>
-
 
 <header>
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container-fluid"> 
             <div class="navbar-header">
-                <a class="navbar-brand" href="index.php">
+                <a class="navbar-brand" href="#">
                     <span>Cursos</span>
                 </a>
             </div>
@@ -27,8 +28,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                             aria-expanded="false">Ações <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Adicionar Produto</a></li>
-                            <li><a href="#">Editar Produto</a></li>
+                            <li><a href="adicionaProduto.php">Adicionar Produto</a></li>
+                            <li><a href="editarProduto.php">Editar Produto</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -45,7 +46,7 @@
                     <strong>
                         <a href="usuario.php" class="navbar-link"><?php echo $nomeLogado; ?></a>
                     </strong>
-                    <a href="inc/logout.php" class="btn btn-danger">Logout</a>
+                        <a href="inc/logout.php" class="btn btn-danger">Logout</a>
                 </p>
             </div>
         </div>

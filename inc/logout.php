@@ -1,12 +1,8 @@
 <?php
-    
-    //iniciando a sessão do usuário
     session_start();
-    //destruindo a sessão do usuario
+    // destruindo a sessão de usuário
     session_destroy();
-    //redirecionando o usuario para o login.php
+    // redirecionando o usuário para o login.php
     header("Location: ../login.php");
-
-
 
 ?>
